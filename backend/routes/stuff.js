@@ -3,15 +3,7 @@ const router = express.Router();
 
 const Thing = require('../models/Thing');
 
-router.post('/', (req, res, next) => {
-    delete req.body._id;
-    const thing = new Thing({
-      ...req.body
-    });
-    thing.save()
-      .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
-      .catch(error => res.status(400).json({ error }));
-  });
+router.post('/', );
   
   router.put('/:id', (req, res, next) => {
     Thing.updateOne({_id: req.params.id }, { ...req.body, _id: req.params.id })
